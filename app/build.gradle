@@ -11,7 +11,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example"
+        applicationId "com.adnan"
         minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
@@ -57,7 +57,6 @@ dependencies {
     // Support libraries
     implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation "androidx.fragment:fragment:$fragment_version"
-    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
 
     // Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigation_version"
@@ -65,13 +64,20 @@ dependencies {
 
     // Material design lib
     implementation "com.google.android.material:material:$material_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "androidx.viewpager2:viewpager2:$viewpager2_version"
+
 
     // ViewModel and LiveData (arch components)
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_extensions_version"
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
 
+    // Glide for images
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+
     // Logging
     implementation "com.jakewharton.timber:timber:$timber_version"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$coordinator_layout_version"
 
     testImplementation "junit:junit:$junit_version"
     androidTestImplementation "androidx.test.ext:junit:$android_junit_version"

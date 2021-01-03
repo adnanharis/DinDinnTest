@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">DinDinnTest</string>
     <string name="text_hello">Hello</string>
+    <string name="content_image">Image View</string>
+    <string name="food_short_description">Add most of the remaining sauce, reserving a bit to drizzle over the top when serving.
+        Gently toss everything together in the casserole dish until combined. Enjoy!</string>
 </resources>

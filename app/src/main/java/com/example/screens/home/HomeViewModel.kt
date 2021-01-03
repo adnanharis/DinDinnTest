@@ -6,21 +6,21 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.bt_data_db.getDatabase
-import com.example.repositories.AdviceRepository
+import com.example.repositories.FoodRepository
 import kotlinx.coroutines.launch
 
 class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     private val database = getDatabase(application)
-    private val adviceRepository = AdviceRepository(database)
+    private val foodRepository = FoodRepository(database)
 
     init {
         viewModelScope.launch {
-            adviceRepository.refresh()
+            foodRepository.refresh()
         }
     }
 
-    val advice = adviceRepository.advice
+    val foodList = foodRepository.foodList
 
     class Factory(private val app: Application) : ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {

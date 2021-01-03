@@ -1,6 +1,6 @@
 package com.example.nbt_data_remote
 
-import com.example.nbt_data_remote.services.AdviceService
+import com.example.nbt_data_remote.services.FoodService
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -11,7 +11,8 @@ import retrofit2.converter.moshi.MoshiConverterFactory
  * Main entry point for network access.
  */
 object Network {
-    private const val BASE_URL = "https://api.adviceslip.com"
+
+    private const val BASE_URL = "https://www.themealdb.com"
     private val moshi = Moshi.Builder()
         .add(KotlinJsonAdapterFactory())
         .build()
@@ -22,5 +23,5 @@ object Network {
         .addCallAdapterFactory(CoroutineCallAdapterFactory())
         .build()
 
-    val adviceService = retrofit.create(AdviceService::class.java)
+    val foodService: FoodService = retrofit.create(FoodService::class.java)
 }

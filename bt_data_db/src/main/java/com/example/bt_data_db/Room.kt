@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.bt_data_db.database_models.AdviceDao
-import com.example.bt_data_db.database_models.DatabaseAdvice
+import com.example.bt_data_db.dao.FoodDao
+import com.example.bt_data_db.database_models.DatabaseFood
 
 
-@Database(entities = [DatabaseAdvice::class], version = 1)
+@Database(entities = [DatabaseFood::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
-    abstract val adviceDao: AdviceDao
+    abstract val foodDao: FoodDao
 }
 
 private lateinit var INSTANCE: AppDatabase
