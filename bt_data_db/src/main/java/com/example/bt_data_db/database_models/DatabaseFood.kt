@@ -16,18 +16,19 @@ data class DatabaseFood(
     @PrimaryKey
     val id: String,
     val name: String,
-    val imageUrl: String
+    val imageUrl: String,
+    val category: String
 )
 
 private fun List<DatabaseFood>.asDomainModel(): List<Food> {
     return map {
-        Food(it.id, it.name, it.imageUrl)
+        Food(it.id, it.name, it.imageUrl, it.category)
     }
 }
 
 private fun List<Food>.toDatabaseModel(): Array<DatabaseFood> {
     return map {
-        DatabaseFood(it.id, it.name, it.imageUrl)
+        DatabaseFood(it.id, it.name, it.imageUrl, it.category)
     }.toTypedArray()
 }
 
@@ -44,8 +45,14 @@ class FoodDaoWrapper {
             }
         }
 
+        fun getFoodListByCategory(database: AppDatabase, category: String): LiveData<List<Food>> {
+            val data = database.foodDao.getFoodListByCategory(category)
+            return Transformations.map(data) {
+                it?.asDomainModel()
+            }
+        }
+
         fun update(database: AppDatabase, foods: List<Food>) {
-            database.foodDao.deleteAll()
             database.foodDao.insertAll(*foods.toDatabaseModel())
         }
     }

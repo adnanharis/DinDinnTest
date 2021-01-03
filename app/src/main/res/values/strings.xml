@@ -4,4 +4,16 @@
     <string name="content_image">Image View</string>
     <string name="food_short_description">Add most of the remaining sauce, reserving a bit to drizzle over the top when serving.
         Gently toss everything together in the casserole dish until combined. Enjoy!</string>
+    <string name="food_weight">200 gm, 35 cm</string>
+    <string name="text_50_usd">50 usd</string>
+    <string name="text_added_1">Added + 1</string>
+    <string name="checkout_screen_message">Sprint2: Implement complete checkout flow (TODO). Need more time to complete as a test though UI technique remains same as of home screen.</string>
+
+    <string-array name="food_categories">
+        <item>Seafood</item>
+        <item>Vegetarian</item>
+        <item>Dessert</item>
+        <item>Breakfast</item>
+    </string-array>
+
 </resources>

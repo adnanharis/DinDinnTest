@@ -13,8 +13,8 @@ data class NetworkFoodContainer(val meals: List<NetworkFood>)
 @JsonClass(generateAdapter = true)
 data class NetworkFood(val idMeal: String, val strMeal: String, val strMealThumb: String)
 
-fun NetworkFoodContainer.asDomainModel(): List<Food> {
+fun NetworkFoodContainer.asDomainModel(category: String): List<Food> {
     return meals.map {
-        Food(it.idMeal, it.strMeal, it.strMealThumb)
+        Food(it.idMeal, it.strMeal, it.strMealThumb, category)
     }
 }

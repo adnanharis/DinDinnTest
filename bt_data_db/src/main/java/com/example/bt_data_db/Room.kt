@@ -22,7 +22,9 @@ fun getDatabase(context: Context): AppDatabase {
                 context.applicationContext,
                 AppDatabase::class.java,
                 "app_db"
-            ).build()
+            )
+                .fallbackToDestructiveMigration()
+                .build()
         }
     }
     return INSTANCE

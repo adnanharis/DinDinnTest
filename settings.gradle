@@ -2,4 +2,4 @@ include ':bt_data_db'
 include ':nbt_data_remote'
 include ':nbt_domain'
 include ':app'
-rootProject.name = "kotlin-clean-arch-droid"
+rootProject.name = "DinDinnTest"

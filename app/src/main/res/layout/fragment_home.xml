@@ -6,9 +6,6 @@
 
     <data>
 
-        <variable
-            name="viewModel"
-            type="com.example.screens.home.HomeViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -25,7 +22,6 @@
                 android:layout_height="match_parent"
                 app:contentScrim="@android:color/white"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
 
                 <!-- HEADER -->
                 <RelativeLayout
@@ -45,8 +41,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:background="@android:color/transparent"
                         android:layout_marginBottom="@dimen/size_36dp"
+                        android:background="@android:color/transparent"
                         app:tabBackground="@drawable/home_welcome_pager_selector"
                         app:tabGravity="center"
                         app:tabIndicatorHeight="0dp" />
@@ -76,16 +72,45 @@
             app:cardElevation="@dimen/size_4dp"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/home_foodList"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:overScrollMode="ifContentScrolls"
-                android:padding="@dimen/size_16dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                tools:itemCount="10"
-                tools:listitem="@layout/list_item_foods" />
+                android:orientation="vertical"
+                tools:context=".MainActivity">
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/foodsTabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/size_16dp"
+                    android:layout_marginBottom="@dimen/size_8dp"
+                    android:background="@android:color/transparent"
+                    android:paddingStart="@dimen/size_16dp"
+                    android:paddingEnd="@dimen/size_16dp"
+                    app:tabIndicatorColor="@android:color/transparent"
+                    app:tabMode="scrollable"
+                    app:tabSelectedTextColor="@color/text_black"
+                    app:tabTextAppearance="?attr/textAppearanceHeadline6" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/foodsViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/home_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/size_24dp"
+            android:backgroundTint="@android:color/white"
+            android:clickable="true"
+            android:contentDescription="@string/content_image"
+            android:focusable="true"
+            android:src="@android:drawable/ic_popup_sync" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

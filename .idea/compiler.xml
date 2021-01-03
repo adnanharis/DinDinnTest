@@ -2,6 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.7">
+      <module name="DinDinnTest.app" target="1.8" />
+      <module name="DinDinnTest.bt_data_db" target="1.8" />
       <module name="kotlin-clean-arch-droid.app" target="1.8" />
       <module name="kotlin-clean-arch-droid.bt_data_db" target="1.8" />
     </bytecodeTargetLevel>

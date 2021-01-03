@@ -1,4 +1,4 @@
-package com.example.screens.home
+package com.example.screens.home.foods_viewpager
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -9,10 +9,11 @@ import com.example.bt_data_db.getDatabase
 import com.example.repositories.FoodRepository
 import kotlinx.coroutines.launch
 
-class HomeViewModel(application: Application) : AndroidViewModel(application) {
+class FoodsViewModel(application: Application, private val category: String) :
+    AndroidViewModel(application) {
 
     private val database = getDatabase(application)
-    private val foodRepository = FoodRepository(database)
+    private val foodRepository = FoodRepository(database, category)
 
     init {
         viewModelScope.launch {
@@ -22,11 +23,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     val foodList = foodRepository.foodList
 
-    class Factory(private val app: Application) : ViewModelProvider.Factory {
+    class Factory(private val app: Application, private val category: String) :
+        ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+            if (modelClass.isAssignableFrom(FoodsViewModel::class.java)) {
                 @Suppress("UNCHECKED_CAST")
-                return HomeViewModel(app) as T
+                return FoodsViewModel(app, category) as T
             }
             throw IllegalArgumentException("Unable to construct viewmodel")
         }

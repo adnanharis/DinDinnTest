@@ -21,11 +21,11 @@ class WelcomePagerFragment : Fragment() {
         const val ARG_POSITION = "position"
 
         fun getInstance(position: Int): Fragment {
-            val doppelgangerFragment = WelcomePagerFragment()
+            val fragment = WelcomePagerFragment()
             val bundle = Bundle()
             bundle.putInt(ARG_POSITION, position)
-            doppelgangerFragment.arguments = bundle
-            return doppelgangerFragment
+            fragment.arguments = bundle
+            return fragment
         }
     }
 
